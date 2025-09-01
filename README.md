@@ -11,7 +11,7 @@
 1. **Clonar el repositorio**
    ```bash
    git clone https://github.com/cristian0981/mpc_book-front.git
-   cd app-cmpc-books
+   cd mpc_book-front
    ```
 
 2. **Instalar dependencias**
@@ -52,6 +52,8 @@
 ```bash
 # Construir y ejecutar en modo desarrollo
 docker-compose up --build -d
+
+esto lo correra en el http://localhost:5173/
 
 ```
 
