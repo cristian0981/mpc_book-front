@@ -6,8 +6,8 @@ WORKDIR /app
 # Copiar package.json y package-lock.json
 COPY package*.json ./
 
-# Instalar dependencias
-RUN npm ci --only=production
+# Instalar TODAS las dependencias (incluye devDependencies necesarias para compilar)
+RUN npm ci --legacy-peer-deps
 
 # Copiar código fuente
 COPY . .
@@ -23,8 +23,9 @@ WORKDIR /app
 # Instalar serve globalmente
 RUN npm install -g serve
 
-# Copiar archivos construidos
+# Copiar solo lo necesario desde la etapa de build
 COPY --from=build /app/dist ./dist
+COPY package*.json ./
 
 # Exponer puerto
 EXPOSE 3000
