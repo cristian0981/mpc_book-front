@@ -1,69 +1,115 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚦 Instalación y Configuración
 
-Currently, two official plugins are available:
+### Prerrequisitos
+- Node.js 20.19+ o 22.12+
+- npm o yarn
+- Git
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Instalación Local
 
-## Expanding the ESLint configuration
+1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/cristian0981/mpc_book-front.git
+   cd app-cmpc-books
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+2. **Instalar dependencias**
+   ```bash
+   npm install
+   ```
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+3. **Configurar variables de entorno**
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Editar el archivo `.env` con las configuraciones necesarias:
+   ```env
+   VITE_API_URL=http://localhost:5000/api
+   VITE_URL_IMG=http://localhost:5000/files/
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+4. **Ejecutar en modo desarrollo**
+   ```bash
+   npm run dev
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+5. **Construir para producción**
+   ```bash
+   npm run build
+   ```
+
+6. **Previsualizar build de producción**
+   ```bash
+   npm run preview
+   ```
+
+## 🐳 Despliegue con Docker
+
+### Desarrollo Local con Docker
+
+```bash
+# Construir y ejecutar en modo desarrollo
+docker-compose up --build -d
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+
+## 🔧 Scripts Disponibles
+
+- `npm run dev` - Inicia el servidor de desarrollo
+- `npm run build` - Construye la aplicación para producción
+- `npm run preview` - Previsualiza el build de producción
+- `npm run lint` - Ejecuta el linter de código
+
+## 🌐 Rutas de la Aplicación
+
+### Rutas Protegidas (requieren autenticación)
+- `/` - Redirige a `/books`
+- `/books` - Lista de libros
+- `/books/new` - Crear nuevo libro
+- `/books/edit/:id` - Editar libro
+- `/books/view/:id` - Ver detalles del libro
+- `/authors` - Gestión de autores
+- `/genres` - Gestión de géneros
+- `/editorials` - Gestión de editoriales
+
+### Rutas Públicas
+- `/login` - Inicio de sesión
+- `/register` - Registro de usuario
+
+## 🔐 Autenticación
+
+El sistema utiliza autenticación basada en cookies con JWT. Las rutas están protegidas mediante el componente `ProtectedRoute` que verifica el estado de autenticación del usuario.
+
+## 🎨 Componentes UI
+
+La aplicación utiliza una biblioteca de componentes personalizada basada en:
+- **Radix UI** - Componentes base accesibles
+- **Tailwind CSS** - Estilos utilitarios
+- **Lucide React** - Iconografía
+- **Class Variance Authority** - Variantes de componentes
+
+## 📱 Responsive Design
+
+La aplicación está completamente optimizada para dispositivos móviles y de escritorio, utilizando:
+- Tailwind CSS para diseño responsive
+- Hook personalizado `use-mobile` para detección de dispositivos
+- Componentes adaptativos según el tamaño de pantalla
+
+## 🔄 Gestión de Estado
+
+- **Contexto de Autenticación**: Manejo del estado de usuario autenticado
+- **React Hook Form**: Gestión de estado de formularios
+- **Axios**: Manejo de peticiones HTTP con interceptores
+
+## 🚨 Manejo de Errores
+
+- Interceptores de Axios para manejo centralizado de errores
+- Validación de formularios con Zod
+- Notificaciones de error con Sonner
+- Páginas de error personalizadas (404)
+
