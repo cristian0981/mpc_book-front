@@ -34,7 +34,6 @@ export const FormEditorial = ({ editorialId, onClose, onSuccess }: FormEditorial
     handleSubmit,
     formState: { errors },
     setValue,
-    reset
   } = useForm<EditorialFormData>({
     resolver: zodResolver(editorialSchema),
     defaultValues: {

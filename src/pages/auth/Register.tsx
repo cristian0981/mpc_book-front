@@ -1,4 +1,3 @@
-import type React from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,7 +10,6 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { AlertCircleIcon, Book, UserPlus } from "lucide-react";
 import { useNavigate, Link } from "react-router-dom";
 import type { Register } from "@/types/register";
-import { RegisterRequest } from "@/services/auth.service";
 import { useAuth } from "@/contexts/auth-context";
 
 // Esquema de validación

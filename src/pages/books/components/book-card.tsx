@@ -19,7 +19,6 @@ import {
   Building, 
   Tag, 
   Calendar, 
-  DollarSign, 
   Package 
 } from "lucide-react"
 import type { Book } from "../types/book";

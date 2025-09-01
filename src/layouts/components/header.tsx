@@ -35,7 +35,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
           <Button
             variant="outline"
             size="sm"
-            onClick={logout}
+            onClick={() => user?.id ? logout(user.id) : undefined}
             className="flex items-center gap-2 border-border hover:bg-muted bg-transparent text-xs md:text-sm"
           >
             <LogOut className="h-4 w-4" />

@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Frame, GalleryVerticalEnd, PieChart, Map, BookOpen, Bot, Settings2, SquareTerminal, CircleSmall, Book } from "lucide-react"
+import { BookOpen, Bot, CircleSmall, Book } from "lucide-react"
 
 import {
   Sidebar,

@@ -39,7 +39,6 @@ export const FormGenre = ({ genreId, onClose, onSuccess }: FormGenreProps) => {
     handleSubmit,
     formState: { errors },
     setValue,
-    reset
   } = useForm<GenreFormData>({
     resolver: zodResolver(genreSchema),
     defaultValues: {

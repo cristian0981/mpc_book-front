@@ -40,7 +40,6 @@ export const FormAuthor = ({ authorId, onClose, onSuccess }: FormAuthorProps) =>
     handleSubmit,
     formState: { errors },
     setValue,
-    reset
   } = useForm<AuthorFormData>({
     resolver: zodResolver(authorSchema),
     defaultValues: {
